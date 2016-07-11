@@ -4,9 +4,9 @@ const _ = require('lodash');
 const Script = require('smooch-bot').Script;
 
 const scriptRules = require('./script.json');
+let personName = '';
 
 module.exports = new Script({
-    let personName = '';
 
     processing: {
         //prompt: (bot) => bot.say('Beep boop...'),
