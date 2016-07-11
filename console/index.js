@@ -11,6 +11,7 @@ const fs = require('fs');
 class ConsoleBot extends Bot {
     constructor(options) {
         super(options);
+        this.userName = options.userName;
     }
 
     say(text) {
