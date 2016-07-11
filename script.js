@@ -23,7 +23,7 @@ module.exports = new Script({
         prompt: (bot) => bot.say('What\'s your name?'),
         receive: (bot, message) => {
             const name = message.text;
-            bot.name = name;
+            bot.userName = name;
             return bot.setProp('namePerson', name)
                 .then(() => bot.say(`Great! I'll call you ${name}`))
                 .then(() => 'speak');
