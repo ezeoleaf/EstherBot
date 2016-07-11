@@ -49,6 +49,11 @@ Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
                 return bot.getProp("silent");
             }
 
+            function replaceTags(text)
+            {
+                return 'Probando reemplazo de tags' + bot.getProp('name');
+            }
+
             function processMessage(isSilent) {
                 if (isSilent) {
                     return Promise.resolve("speak");
@@ -66,6 +71,7 @@ Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
                     line = line.trim();
                     p = p.then(function() {
                         console.log(line);
+                        line = replaceTags(line);
                         return bot.say(line);
                     });
                 })
