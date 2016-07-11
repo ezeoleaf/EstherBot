@@ -49,7 +49,7 @@ Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
                 return bot.getProp("silent");
             }
 
-            function replaceTags(text)
+            function replaceTags(bot,text)
             {
                 return 'Probando reemplazo de tags' + bot.getProp('namePerson');
             }
