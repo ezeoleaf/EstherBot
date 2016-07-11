@@ -37,13 +37,15 @@ class ConsoleBot extends Bot {
 
 const script = require('../script');
 
+let name = '';
 const userId = 'testUserId';
 const store = new MemoryStore();
 const lock = new MemoryLock();
 const bot = new ConsoleBot({
     store,
     lock,
-    userId
+    userId,
+    name
 });
 
 const stateMachine = new StateMachine({
