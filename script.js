@@ -4,7 +4,6 @@ const _ = require('lodash');
 const Script = require('smooch-bot').Script;
 
 const scriptRules = require('./script.json');
-let personName = '';
 
 module.exports = new Script({
 
@@ -24,10 +23,8 @@ module.exports = new Script({
         prompt: (bot) => bot.say('What\'s your name?'),
         receive: (bot, message) => {
             const name = message.text;
-            personName = name;
             return bot.setProp('namePerson', name)
-                .then(() => bot.say(`Great! I'll call you ${name}
-Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
+                .then(() => bot.say(`Great! I'll call you ${name}`))
                 .then(() => 'speak');
         }
     },
@@ -54,7 +51,7 @@ Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
 
             function replaceTags(bot,text)
             {
-                return 'Probando reemplazo de tags' + personName;
+                return 'Probando reemplazo de tags';
             }
 
             function processMessage(isSilent) {
