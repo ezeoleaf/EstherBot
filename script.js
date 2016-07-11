@@ -51,7 +51,7 @@ Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
 
             function replaceTags(bot,text)
             {
-                return 'Probando reemplazo de tags' + botGen.getProp('namePerson') + getSilent();
+                return 'Probando reemplazo de tags' + botGen.getProp('namePerson').toString() + getSilent();
             }
 
             function processMessage(isSilent) {
