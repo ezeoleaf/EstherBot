@@ -14,7 +14,7 @@ const fs = require('fs');
 class BetterSmoochApiBot extends SmoochApiBot {
     constructor(options) {
         super(options);
-        this.userName = option.userName;
+        this.userName = options.userName;
     }
 
     sendImage(imageFileName) {
