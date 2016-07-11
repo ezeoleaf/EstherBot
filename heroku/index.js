@@ -14,6 +14,7 @@ const fs = require('fs');
 class BetterSmoochApiBot extends SmoochApiBot {
     constructor(options) {
         super(options);
+        this.userName = option.userName;
     }
 
     sendImage(imageFileName) {
@@ -82,6 +83,7 @@ app.post('/webhook', function(req, res, next) {
     var isPostback = req.body.trigger == "postback";
     var msg = '';
 
+    const userName = 'Ezeoleaf';
     const appUser = req.body.appUser;
     const userId = appUser.userId || appUser._id;
     const stateMachine = new StateMachine({
@@ -91,7 +93,8 @@ app.post('/webhook', function(req, res, next) {
             avatarUrl,
             lock,
             store,
-            userId
+            userId,
+            userName
         })
     });    
 

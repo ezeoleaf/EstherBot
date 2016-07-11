@@ -11,7 +11,6 @@ const fs = require('fs');
 class ConsoleBot extends Bot {
     constructor(options) {
         super(options);
-        this.userName = options.userName;
     }
 
     say(text) {
@@ -38,15 +37,13 @@ class ConsoleBot extends Bot {
 
 const script = require('../script');
 
-let userName = 'EzeOriginal';
 const userId = 'testUserId';
 const store = new MemoryStore();
 const lock = new MemoryLock();
 const bot = new ConsoleBot({
     store,
     lock,
-    userId,
-    userName
+    userId
 });
 
 const stateMachine = new StateMachine({
