@@ -51,7 +51,7 @@ module.exports = new Script({
 
             function replaceTags(text)
             {
-                return 'Probando reemplazo de tags'+bot.name;
+                return 'Probando reemplazo de tags'+bot.userName;
             }
 
             function processMessage(isSilent) {
