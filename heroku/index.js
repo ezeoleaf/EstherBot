@@ -30,6 +30,11 @@ class BetterSmoochApiBot extends SmoochApiBot {
 
         return api.conversations.uploadImage(this.userId, source, message);
     }
+
+    setUsername(username)
+    {
+        this.userName = username;
+    }
 }
 
 const name = 'SmoochBot';
