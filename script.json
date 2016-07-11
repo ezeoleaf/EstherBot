@@ -3,7 +3,7 @@
     "HELLO": "Hey, I'm so glad you set EstherBot up! Do you want to tell Esther that you're talking to her bot? %[Tell her](postback:twitter)",
     "TELL HER": "Let's tweet @ Esther so she knows you're setting a bot up. Here's a tweet that's ready to go: %[Tweet Esther](http://bit.ly/estherbot-tweet)",
     "I LOVE YOU": "Awh, shucks! I love you too!",
-    "HOLA":`Hola ${bot.getProp('name')} soy EzeBot, como te llamas?`,
+    "HOLA":"Hola ${name} soy EzeBot, como te llamas?",
     "BIEN Y VOS?":"Genial, encantado de que estemos en contacto. %[QUIEN SOS?](postback:quien_sos)",
     "QUIEN SOS?":"Soy Ezequiel Olea Figueroa. Desarrollador Argentino de software. Hincha fanático de Boca Juniors. %[Mas sobre mi](postback:about) %[Mis proyectos](postback:proyects) %[Contactarme](postback:contact)",
     "MAS SOBRE MI":"Me encuentro estudiando Ingeniería de Sistemas en la Universidad Tecnológica Nacional",
