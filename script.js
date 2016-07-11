@@ -22,7 +22,7 @@ module.exports = new Script({
         prompt: (bot) => bot.say('What\'s your name?'),
         receive: (bot, message) => {
             const name = message.text;
-            return bot.setProp('name', name)
+            return bot.setProp('namePerson', name)
                 .then(() => bot.say(`Great! I'll call you ${name}
 Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
                 .then(() => 'speak');
@@ -51,7 +51,7 @@ Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
 
             function replaceTags(text)
             {
-                return 'Probando reemplazo de tags' + bot.getProp('name');
+                return 'Probando reemplazo de tags' + bot.getProp('namePerson');
             }
 
             function processMessage(isSilent) {
