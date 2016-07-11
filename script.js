@@ -66,13 +66,12 @@ module.exports = new Script({
 
                 var response = scriptRules[upperText];
                 var lines = response.split('\n');
-
+                lines = replaceTags(lines);
                 var p = Promise.resolve();
                 _.each(lines, function(line) {
                     line = line.trim();
                     p = p.then(function() {
                         console.log(line);
-                        line = replaceTags(line);
                         return bot.say(line);
                     });
                 })
