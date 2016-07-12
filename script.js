@@ -52,7 +52,7 @@ module.exports = new Script({
 
             function replaceTags(text)
             {
-                return 'Probando reemplazo de tags' + bot.userName + bot.getProp('test');
+                return 'Probando reemplazo de tags' + bot.userName + bot.getProp('test') + text;
             }
 
             function processMessage(isSilent) {
@@ -66,7 +66,6 @@ module.exports = new Script({
 
                 var response = scriptRules[upperText];
                 var lines = response.split('\n');
-                lines = replaceTags(lines);
                 var p = Promise.resolve();
                 _.each(lines, function(line) {
                     line = line.trim();
@@ -81,7 +80,8 @@ module.exports = new Script({
 
             return updateSilent()
                 .then(getSilent)
-                .then(processMessage);
+                .then(processMessage)
+                .then(replaceTags);
         }
     }
 });
