@@ -69,8 +69,7 @@ module.exports = new Script({
                 var lines = response.split('\n');
                 var p = Promise.resolve();
                 _.each(lines, function(line) {
-                    line = line.trim();
-                    replaceTags(line);
+                    line = replaceTags(line.trim());
                     p = p.then(function() {
                         console.log(line);
                         return bot.say(line);
