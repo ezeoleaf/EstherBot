@@ -4,6 +4,7 @@ const _ = require('lodash');
 const Script = require('smooch-bot').Script;
 
 const scriptRules = require('./script.json');
+const nameUser = '';
 
 module.exports = new Script({
 
@@ -14,7 +15,7 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('Quieres hablar con Eze? Di Hola y empecemos :).'+bot.userName)
+            return bot.say('Quieres hablar con Eze? Di Hola y empecemos :).')
                 .then(() => 'askName');
         }
     },
@@ -24,7 +25,7 @@ module.exports = new Script({
         receive: (bot, message) => {
             bot.setProp('test','Testing');
             const name = message.text;
-            bot.setUsername(name);
+            nameUser = name;
             return bot.setProp('namePerson', name)
                 .then(() => bot.say(`Great! I'll call you ${name}`))
                 .then(() => 'speak');
@@ -52,7 +53,7 @@ module.exports = new Script({
 
             function replaceTags(text)
             {
-                return 'Probando reemplazo de tags' + bot.userName + bot.getProp('test') + text;
+                return 'Probando reemplazo de tags' + nameUser;
             }
 
             function processMessage(isSilent) {
@@ -69,6 +70,7 @@ module.exports = new Script({
                 var p = Promise.resolve();
                 _.each(lines, function(line) {
                     line = line.trim();
+                    replaceTags(line);
                     p = p.then(function() {
                         console.log(line);
                         return bot.say(line);
@@ -80,8 +82,7 @@ module.exports = new Script({
 
             return updateSilent()
                 .then(getSilent)
-                .then(processMessage)
-                .then(replaceTags);
+                .then(processMessage);
         }
     }
 });
