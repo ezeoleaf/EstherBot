@@ -22,10 +22,10 @@ module.exports = new Script({
     },
 
     askLanguage: {
-        prompt: (bot) => bot.say('In which language do you want to talk? Enter EN for English or ES for Spanish \n ¿En qué lenguaje deseas hablar? Ingresa EN para Inglés o ES para Español'),
+        prompt: (bot) => bot.say('In which language do you want to talk? Enter EN for English or ES for Spanish\n¿En qué lenguaje deseas hablar? Ingresa EN para Inglés o ES para Español'),
         receive: (bot, message) => {
             const lang = message.text.trim().toLowerCase();
-            if(lang != 'en' || lang != 'es')
+            if(lang != 'en' && lang != 'es')
             {
                 return bot.say('Please enter an option/Por favor ingrese una opción')
                 .then(() => 'askLanguage');
