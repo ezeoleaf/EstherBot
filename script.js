@@ -45,7 +45,7 @@ module.exports = new Script({
         receive: (bot, message) => {
             const name = message.text;
             dataUser[bot.userId].name = name;
-            const nameText = (dataUser[bot.userId].lang == 'es') ? `Genial! Te voy a llamar ${name}.Que necesitas? %[AYUDA](postback:help)` : `Great! I'm calling you ${name}. What do you nedd? %[HELP](postback:help)`;
+            const nameText = (dataUser[bot.userId].lang == 'es') ? `Genial! Te voy a llamar ${name}.Que necesitas? %[AYUDA](postback:help)` : `Great! I'm calling you ${name}. What do you need? %[HELP](postback:help)`;
             return bot.say(nameText)
                 .then(() => 'speak');
         }
