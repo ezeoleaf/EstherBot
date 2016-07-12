@@ -15,17 +15,37 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('Hola :)')
-                .then(() => 'askName');
+            return bot.say(':)')
+                .then(() => 'askLanguage');
         }
     },
 
+    askLanguage: {
+        prompt: (bot) => bot.say('In which language do you want to talk? Enter EN for English or ES for Spanish \n ¿En qué lenguaje deseas hablar? Ingresa EN para Inglés o ES para Español'),
+        receive: (bot, message) => {
+            const lang = message.text.trim().toLowerCase();
+            if(lang != 'en' || lang != 'es')
+            {
+                return bot.say('Please enter an option/Por favor ingrese una opción')
+                .then(() => 'askLanguage');
+            }
+
+            dataUser[bot.userId] = {lang:lang};
+
+            const hi = (lang == 'es') ? 'Hola' : 'Hi';
+
+            return bot.say(hi)
+                .then(() => 'askName');
+        }
+    }
+
     askName: {
-        prompt: (bot) => bot.say('Cómo te llamas?'),
+        prompt: (bot) => bot.say(((dataUser[bot.userId].lang == 'es') ? 'Cómo te llamas?' : 'How is your name?')),
         receive: (bot, message) => {
             const name = message.text;
             dataUser[bot.userId] = {name:name};
-            return bot.say(`Genial! Te voy a llamar ${name}.Que necesitas? %[AYUDA](postback:help)`)
+            const nameText = (dataUser[bot.userId].lang == 'es') ? `Genial! Te voy a llamar ${name}.Que necesitas? %[AYUDA](postback:help)` : `Great! I'm calling you ${name}. What do you nedd? %[HELP](postback:help)`;
+            return bot.say(nameText)
                 .then(() => 'speak');
         }
     },

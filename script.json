@@ -1,6 +1,5 @@
 {
     "BOT": "Hi there!\nI’m the personal bot of Esther, a Product Marketer from San Francisco.\n![esther](https://raw.githubusercontent.com/esthercrawford/smooch-bot-example/master/img/esther.jpg)\nWant to know more about bots or learn about Esther? %[I'm here for the bot](postback:here_for_the_bot) %[Learn about Esther](postback:learn_about_esther) %[One random fact!](postback:random_fact)",
-    "HELLO": "Hey, I'm so glad you set EstherBot up! Do you want to tell Esther that you're talking to her bot? %[Tell her](postback:twitter)",
     "TELL HER": "Let's tweet @ Esther so she knows you're setting a bot up. Here's a tweet that's ready to go: %[Tweet Esther](http://bit.ly/estherbot-tweet)",
     "I LOVE YOU": "Awh, shucks! I love you too!",
     "HOLA":"Hola {name} soy EzeBot, en que te puedo ayudar?",
@@ -16,6 +15,21 @@
     "AYUDA":"Puedes preguntarme sobre %[SOBRE MI](postback:me) %[MIS PROYECTOS](postback:proyects) %[CONTACTARME](postback:contact)",
     "CONOCIMIENTOS":"Los lenguajes y frameworks que utilizo son: \n BACKEND: PHP, C#, Javascript(Node.js), Java \n FRONTEND: HTML5, Javascript, Jquery, CSS3, Bootstrap, Materialize \n BASES DE DATOS: PostgreSQL, SQLServer, MySQL",
     "HABILIDADES":"Los lenguajes y frameworks que utilizo son: \n BACKEND: PHP, C#, Javascript(Node.js), Java \n FRONTEND: HTML5, Javascript, Jquery, CSS3, Bootstrap, Materialize \n BASES DE DATOS: PostgreSQL, SQLServer, MySQL",
+    "HI":"Hi {name} I'm EzeBot, how can I help you?",
+    "HELLO":"Hi {name} I'm EzeBot, how can I help you?",
+    "HOW ARE YOU?": "Really fine and you?",
+    "FINE AND YOU?":"Great, pleased that we are in touch {name}. %[ABOUT ME](postback:quien_sos)",
+    "WHO ARE YOU?":"I'm Ezequiel Olea Figueroa. Argentinian software developer. Fan of Boca Juniors. %[MORE ABOUT ME](postback:about) %[PROJECTS](postback:proyects) %[CONTACT ME](postback:contact)",
+    "ABOUT ME":"I'm Ezequiel Olea Figueroa. Argentinian software developer. Fan of Boca Juniors. %[MORE ABOUT ME](postback:about) %[PROJECTS](postback:proyects) %[CONTACT ME](postback:contact)",
+    "MORE ABOUT ME":"Nowadays I'm studying Software Engineering at the National University of Technology",
+    "CONTACT ME":"You can send me an email to eze.olea.f@gmail.com \n Or find me at %[FACEBOOK](http://bit.ly/29Lubty) %[GITHUB](http://bit.ly/29vjDJg) %[TWITTER](http://bit.ly/29MyBgE) %[LINKEDIN](http://bit.ly/29KisK1)",
+    "CONTACT":"You can send me an email to eze.olea.f@gmail.com \n Or find me at %[FACEBOOK](http://bit.ly/29Lubty) %[GITHUB](http://bit.ly/29vjDJg) %[TWITTER](http://bit.ly/29MyBgE) %[LINKEDIN](http://bit.ly/29KisK1)",
+    "PROJECTS":"Currently I'm working as a FullStack developer at BIT S.A. Also I'm developing web systems for the University Extension Secretary - National University of Technology.\n You can see my personal projects in %[GITHUB](http://bit.ly/29vjDJg)",
+    "EXPERIENCE":"",
+    "HELP":"You can ask me about %[ABOUT ME](postback:me) %[PROJECT](postback:proyects) %[CONTACT ME](postback:contact)",
+    "KNOWLEDGE":"The languages and frameworks that I use are: \n BACKEND: PHP, C#, Javascript(Node.js), Java \n FRONTEND: HTML5, Javascript, Jquery, CSS3, Bootstrap, Materialize \n DATABASES: PostgreSQL, SQLServer, MySQL",
+    "SKILLS":"The languages and frameworks that I use are: \n BACKEND: PHP, C#, Javascript(Node.js), Java \n FRONTEND: HTML5, Javascript, Jquery, CSS3, Bootstrap, Materialize \n DATABASES: PostgreSQL, SQLServer, MySQL",
+    "SKILL":"The languages and frameworks that I use are: \n BACKEND: PHP, C#, Javascript(Node.js), Java \n FRONTEND: HTML5, Javascript, Jquery, CSS3, Bootstrap, Materialize \n DATABASES: PostgreSQL, SQLServer, MySQL",
     "CONNECT ME": "",
     "DISCONNECT": "Genial. EzeBot está de nuevo en contacto"
 }
