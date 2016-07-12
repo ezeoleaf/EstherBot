@@ -53,7 +53,7 @@ module.exports = new Script({
 
             function replaceTags(text)
             {
-                let sPos = text.indexOf('{');
+                let sPos = text.indexOf('{') + 1;
                 let ePos = text.indexOf('}');
                 let lengthTag = ePos - sPos;
 
