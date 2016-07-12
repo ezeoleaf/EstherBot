@@ -38,12 +38,11 @@ module.exports = new Script({
             return bot.say(hi)
                 .then(() => 'askName');
         }
-    }
+    },
 
     askName: {
-        prompt: (bot) => bot.say('name'),
+        prompt: (bot) => bot.say(((dataUser[bot.userId].lang == 'es') ? 'Cómo te llamas?' : 'How is your name?')),
         receive: (bot, message) => {
-            //((dataUser[bot.userId].lang == 'es') ? 'Cómo te llamas?' : 'How is your name?')
             const name = message.text;
             dataUser[bot.userId].name = name;
             const nameText = (dataUser[bot.userId].lang == 'es') ? `Genial! Te voy a llamar ${name}.Que necesitas? %[AYUDA](postback:help)` : `Great! I'm calling you ${name}. What do you nedd? %[HELP](postback:help)`;
