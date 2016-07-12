@@ -25,7 +25,7 @@ module.exports = new Script({
         receive: (bot, message) => {
             bot.setProp('test','Testing');
             const name = message.text;
-            dataUser.name = name;
+            dataUser[bot.userId] = {name:name};
             return bot.setProp('namePerson', name)
                 .then(() => bot.say(`Genial! Te voy a llamar ${name}.Que necesitas?`))
                 .then(() => 'speak');
@@ -62,7 +62,7 @@ module.exports = new Script({
                 let tag = text.substr(sPos,lengthTag);
 
                 let vText = text.split(`{${tag}}`);
-                text = vText.join(dataUser[tag]);
+                text = vText.join(dataUser[bot.userId][tag]);
 
                 return text;
             }
