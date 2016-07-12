@@ -58,8 +58,10 @@ module.exports = new Script({
             function updateSilent() {
                 switch (upperText) {
                     case "CONNECT ME":
+                    case "CONECTAR":
                         return bot.setProp("silent", true);
                     case "DISCONNECT":
+                    case "DESCONECTAR":
                         return bot.setProp("silent", false);
                     default:
                         return Promise.resolve();
@@ -92,7 +94,7 @@ module.exports = new Script({
                 }
 
                 if (!_.has(scriptRules, upperText)) {
-                    return bot.say(`No entiendo eso.`).then(() => 'speak');
+                    return bot.say(((dataUser[bot.userId].lang == 'es') ? `No entiendo eso.` : `I don't understand`)).then(() => 'speak');
                 }
 
                 var response = scriptRules[upperText];
