@@ -15,7 +15,7 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('Hola :).')
+            return bot.say('Hola :)')
                 .then(() => 'askName');
         }
     },
@@ -23,11 +23,9 @@ module.exports = new Script({
     askName: {
         prompt: (bot) => bot.say('Cómo te llamas?'),
         receive: (bot, message) => {
-            bot.setProp('test','Testing');
             const name = message.text;
             dataUser[bot.userId] = {name:name};
-            return bot.setProp('namePerson', name)
-                .then(() => bot.say(`Genial! Te voy a llamar ${name}.Que necesitas?`))
+            return bot.say(`Genial! Te voy a llamar ${name}.Que necesitas? %[AYUDA](postback:help)`)
                 .then(() => 'speak');
         }
     },
