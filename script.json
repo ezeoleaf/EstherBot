@@ -31,5 +31,7 @@
     "SKILLS":"The languages and frameworks that I use are: \n BACKEND: PHP, C#, Javascript(Node.js), Java \n FRONTEND: HTML5, Javascript, Jquery, CSS3, Bootstrap, Materialize \n DATABASES: PostgreSQL, SQLServer, MySQL",
     "SKILL":"The languages and frameworks that I use are: \n BACKEND: PHP, C#, Javascript(Node.js), Java \n FRONTEND: HTML5, Javascript, Jquery, CSS3, Bootstrap, Materialize \n DATABASES: PostgreSQL, SQLServer, MySQL",
     "CONNECT ME": "",
-    "DISCONNECT": "Genial. EzeBot está de nuevo en contacto"
+    "DISCONNECT": "GREAT. EzeBot is back online",
+    "CONECTAR": "",
+    "DESCONECTAR": "Genial. EzeBot está de nuevo en contacto"
 }
