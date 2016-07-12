@@ -15,6 +15,7 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
+            dataUser[bot.userId] = {};
             return bot.say(':)')
                 .then(() => 'askLanguage');
         }
@@ -43,7 +44,7 @@ module.exports = new Script({
         prompt: (bot) => bot.say(((dataUser[bot.userId].lang == 'es') ? 'Cómo te llamas?' : 'How is your name?')),
         receive: (bot, message) => {
             const name = message.text;
-            dataUser[bot.userId] = {name:name};
+            dataUser[bot.userId].name = name;
             const nameText = (dataUser[bot.userId].lang == 'es') ? `Genial! Te voy a llamar ${name}.Que necesitas? %[AYUDA](postback:help)` : `Great! I'm calling you ${name}. What do you nedd? %[HELP](postback:help)`;
             return bot.say(nameText)
                 .then(() => 'speak');
@@ -57,10 +58,8 @@ module.exports = new Script({
             function updateSilent() {
                 switch (upperText) {
                     case "CONNECT ME":
-                    case "CONECTAR":
                         return bot.setProp("silent", true);
                     case "DISCONNECT":
-                    case "DESCONECTAR":
                         return bot.setProp("silent", false);
                     default:
                         return Promise.resolve();
