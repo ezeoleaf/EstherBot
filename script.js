@@ -4,30 +4,30 @@ const _ = require('lodash');
 const Script = require('smooch-bot').Script;
 
 const scriptRules = require('./script.json');
-let nameUser = '';
+let dataUser = {};
 
 module.exports = new Script({
 
     processing: {
-        //prompt: (bot) => bot.say('Beep boop...'),
+        prompt: (bot) => bot.say('...'),
         receive: () => 'processing'
     },
 
     start: {
         receive: (bot) => {
-            return bot.say('Quieres hablar con Eze? Di Hola y empecemos :).')
+            return bot.say('Hola :).')
                 .then(() => 'askName');
         }
     },
 
     askName: {
-        prompt: (bot) => bot.say('What\'s your name?'),
+        prompt: (bot) => bot.say('Cómo te llamas?'),
         receive: (bot, message) => {
             bot.setProp('test','Testing');
             const name = message.text;
-            nameUser = name;
+            dataUser.name = name;
             return bot.setProp('namePerson', name)
-                .then(() => bot.say(`Great! I'll call you ${name}`))
+                .then(() => bot.say(`Genial! Te voy a llamar ${name}.Que necesitas?`))
                 .then(() => 'speak');
         }
     },
@@ -53,7 +53,18 @@ module.exports = new Script({
 
             function replaceTags(text)
             {
-                return 'Probando reemplazo de tags' + nameUser;
+                let sPos = text.indexOf('{');
+                let ePos = text.indexOf('}');
+                let lengthTag = ePos - sPos;
+
+                if(sPos == -1 || ePos == -1 || lengthTag < 1) return text;
+
+                let tag = text.substr(sPos,lengthTag);
+
+                let vText = text.split(`{${tag}}`);
+                text = vText.join(dataUser[tag]);
+
+                return text;
             }
 
             function processMessage(isSilent) {
@@ -62,7 +73,7 @@ module.exports = new Script({
                 }
 
                 if (!_.has(scriptRules, upperText)) {
-                    return bot.say(`I didn't understand that.`).then(() => 'speak');
+                    return bot.say(`No entiendo eso.`).then(() => 'speak');
                 }
 
                 var response = scriptRules[upperText];
